@@ -22,7 +22,6 @@ contract StarNotary is ERC721 {
     // mapping the TokenId and price
     mapping(uint256 => uint256) public starsForSale;
 
-    
     // Create Star using the Struct
     function createStar(string memory _name, uint256 _tokenId) public { // Passing the name and tokenId as a parameters
         Star memory newStar = Star(_name); // Star is an struct so we are creating a new Star
@@ -82,7 +81,7 @@ contract StarNotary is ERC721 {
         //1. Check if the sender is the ownerOf(_tokenId)
         require(ownerOf(_tokenId) == msg.sender, "You must own this star");
         //2. Use the transferFrom(from, to, tokenId); function to transfer the Star
-        transferFrom(msg.sender, to1, _tokenId);
+        transferFrom(msg.sender, _to1, _tokenId);
     }
 
 }
